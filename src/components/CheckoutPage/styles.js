@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Button} from 'components/BuyButton/styles';
+import {Button} from 'components/SalaryButton/styles';
 
 export const CheckoutPage = styled.div({
   color: 'white',

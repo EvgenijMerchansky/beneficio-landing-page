@@ -148,7 +148,16 @@ export const Links = styled.div({
   ...flex.centerHorizontal
 });
 
-export const Link = styled.a(
+export const ShopLinks = styled.div({
+  ...flex.horizontal,
+  ...flex.centerHorizontal,
+  width: "auto",
+  flexDirection: "row",
+  justifyContent: "flex-start",
+  alignItems: "center"
+});
+
+export const DisabledLink = styled.p(
   {
     textDecoration: 'none',
     borderBottom: '1px solid transparent',
@@ -163,6 +172,27 @@ export const Link = styled.a(
     })
   },
   getThemeColor('text')
+);
+
+export const Link = styled.a(
+  {
+    textDecoration: 'none',
+    borderBottom: '1px solid transparent',
+    transition: 'all 100ms linear',
+    cursor: "pointer",
+    marginRight: 2,
+    '&:last-of-type': {
+      margin: 0
+    },
+    fontSize: 13
+  },
+  getThemeColor('text')
+);
+
+export const ImageLink = styled.img(
+  {
+    width: '150px',
+  }
 );
 
 export const Content = styled(Padding)({
@@ -197,9 +227,15 @@ export const TextContent = styled(
   })
 );
 
-export const Platforms = styled.div({
-    fontSize: 12
-});
+export const Platforms = styled.div(({ theme }) => ({
+    fontSize: 12,
+    color: theme.name === 'dark' ? 'white' : '#565656'
+}));
+
+export const Icon = styled.img(() => ({
+  width: 150,
+  height: 30,
+}));
 
 
 

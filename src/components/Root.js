@@ -17,7 +17,7 @@ const Root = () => {
   return (
     <ThemeProvider theme={themes[night.value ? 'dark' : 'light']}>
       <Fragment>
-        {isRoute(routes.home) && <App night={night} isAnimationDone={isAnimationDone} />}
+        {isRoute(routes.home) && <App night={night} isAnimationDone={isAnimationDone}/>}
         {isRoute(routes.license) && <div>license page</div>}
         {isRoute(routes.checkout) && <CheckoutPage />}
       </Fragment>

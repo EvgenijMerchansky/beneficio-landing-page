@@ -7,53 +7,73 @@ import avatar5 from 'images/avatar-5.png';
 import avatar6 from 'images/avatar-6.png';
 import avatar7 from 'images/avatar-7.png';
 
+import avatarBeneficio from 'images/avatar-beneficio.jpg'
+import avatarInstagram from 'images/instagram-logo.png'
+import avatarGmail from 'images/google-puls.png'
+import avatarFacebook from 'images/facebook-logo.png'
+import avatarTony from 'images/tony.jpg'
+
 export default [
   {
-    name: 'Kitze',
-    username: 'thekitze',
-    message: `I made the app so I'm a bit biased.`,
-    img: kitze
+    name: 'beneficioinc',
+    username: 'beneficioinc',
+    message: `Всем привет! На связи beneficio! Друзья, у нас для вас...`,
+    url: 'https://t.me/beneficioinc',
+    img: avatarBeneficio
   },
   {
-    name: 'Twizzy',
-    username: 'twizzyapp',
-    message: `I *am* the app so I'm even more biased!`,
-    img: twizzy
+    name: 'beneficio salary',
+    username: 'beneficio salary',
+    message: `#43 номер Пользователь: romandobrovolskiy432@gmail.com`,
+    url: 'https://t.me/bsalary',
+    img: avatarBeneficio
   },
   {
-    name: 'Matthew',
-    username: 'ijustwanttotweet',
-    message: `I need Twitter DM as an app!`,
-    img: avatar3
+    name: 'beneficio chat',
+    username: 'beneficio chat',
+    message: `beneficioinc: Всем привет! Мы запустили новый проект под названием...`,
+    url: 'https://t.me/beneficiochat',
+    img: avatarBeneficio
   },
   {
-    name: 'Peggy White',
-    username: 'damnmessage',
-    message: `Hate wasting time, I just want to send a DM.`,
-    img: avatar6
+    name: 'instagram beneficioinc',
+    username: 'instagram',
+    message: `печатает...`,
+    url: 'https://instagram.com/beneficioinc?igshid=pc3a2q4vboio',
+    img: avatarInstagram
   },
   {
-    name: 'Sizzy',
-    username: 'sizzyapp',
-    message: `I'm an app tweeting about app stuff.`,
-    img: sizzy
+    name: 'beneficioinc почта',
+    username: 'почта',
+    message: `Мы с удовольствием отвечаем на письма наших пользователей.`,
+    url: 'mailto:beneficioinc@gmail.com',
+    img: avatarGmail
   },
   {
-    name: 'Donna',
-    username: 'ughnotifs',
-    message: `I just want to tweet and that's it.`,
-    img: avatar7
+    name: 'beneficioinc помощь',
+    username: 'помощь',
+    message: `Наша саппорт команда не спит!:D`,
+    url: 'mailto:beneficioinc.help@gmail.com',
+    img: avatarGmail
   },
   {
-    name: 'Jason Vincent',
-    username: 'nooneexplores',
-    message: `Who cares about explore and moments?!?!`,
-    img: avatar5
-  },
-  {
-    name: 'JSUI',
-    username: 'jsui_app',
-    message: `I'm just an app, what do I know.`,
-    img: jsui
+    name: 'facebook beneficio',
+    username: 'facebook',
+    message: `В нашем сообществе публикуются последние новостные апдейты`,
+    url: 'https://www.facebook.com/beneficioinc',
+    img: avatarFacebook
   }
+  // {
+  //   name: 'bsalary testing',
+  //   username: 'tony',
+  //   message: `Со своей командой проверяю ваши заявки bsalary.`,
+  //   url: 'https://t.me/Polygraph_lu',
+  //   img: avatarTony
+  // },
+  // {
+  //   name: 'JSUI',
+  //   username: 'jsui_app',
+  //   message: `I'm just an app, what do I know.`,
+  //   img: jsui
+  // }
 ];

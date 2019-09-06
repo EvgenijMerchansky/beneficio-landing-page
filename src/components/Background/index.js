@@ -9,14 +9,12 @@ import desertDark from 'images/desert-dark.svg';
 
 function Background({ show, startLoadingLight, night }) {
   const [desertLoaded, setDesertLoad] = useState(false);
-
+  
   return (
-    show && (
-      <Fragment>
-        {startLoadingLight && <S.Desert show={!night} src={desert} />}
-        <S.Desert show={night && desertLoaded} onLoad={() => setDesertLoad(true)} src={desertDark} />
-      </Fragment>
-    )
+    <Fragment>
+      {startLoadingLight && <S.Desert show={!night} src={desert} />}
+      <S.Desert show={night && desertLoaded} onLoad={() => setDesertLoad(true)} src={desertDark} />
+    </Fragment>
   );
 }
 

@@ -18,7 +18,7 @@ export default {
     },
     colors: {
       dimmed: '#647787',
-      icon: '#72bfff',
+      icon: '#ccc',
       text: '#565656'
     },
     button: {
@@ -55,7 +55,7 @@ export default {
     },
     colors: {
       dimmed: '#8799a7',
-      icon: '#72bfff',
+      icon: '#ccc',
       text: 'white'
     },
     button: {

@@ -25,7 +25,7 @@ export const Messages = styled.div(
 export const Icon = styled(FontAwesomeIcon)(({ color, theme, fill }) => ({
   fill: fill || theme.colors.icon,
   width: 17,
-  height: 17
+  height: 17,
 }));
 
 export const FabAnimated = posed.div({
@@ -53,7 +53,7 @@ export const Bar = styled.div(
     ...flex.centerHorizontalV,
     transition: 'all 100ms linear',
     height: 56,
-    padding: 15,
+    padding: 10,
     width: '100%'
   },
   applyTheme('bar')
@@ -61,7 +61,30 @@ export const Bar = styled.div(
 
 export const List = styled.div({});
 
-export const Title = styled.div({});
+export const Title = styled.div(({ theme }) => {
+  
+  return ({
+    textAlign: "center",
+    color: "#ccc",
+    backgroundColor: theme.name === 'dark' ? "#212e3f" : "#f1f1f1",
+    border: theme.name === 'dark' ? "solid 1px #202d3e" : "none",
+    borderRadius: "4px",
+    width: "90%",
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  })
+});
+
+export const Paragraph = styled.p({
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-around",
+  alignItems: "center",
+  width: "80px"
+});
 
 const Animated = posed.a({
   exit: { x: ({ index }) => -50 + index * 5, opacity: 0 },

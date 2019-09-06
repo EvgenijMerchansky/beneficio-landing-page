@@ -1,10 +1,7 @@
 import React, { useRef, useState } from 'react';
 
-//icons (imported as svg using babel plugin)
-import faBatteryFull from '../../icons/bat-charge.svg';
-import faVolumeUp from '../../icons/volume-up.svg';
-import faWifi from '../../icons/wifi.svg';
-import faFeather from '../../icons/feather.svg';
+import playMarket from '../../images/google-play-logo.png';
+import appStore from '../../images/app-store-logo.webp';
 
 //styles
 import * as S from './styles';
@@ -15,8 +12,7 @@ import Messages from 'components/Messages';
 import DayNightSwitch from 'components/DayNightSwitch';
 import MenuBar from 'components/MenuBar';
 import Compose from 'components/Compose';
-import ToggleCount from 'components/ToggleCount';
-import BuyButton from 'components/BuyButton';
+import SalaryButton from 'components/SalaryButton';
 import Background from 'components/Background';
 
 //hooks
@@ -55,12 +51,10 @@ const redirectDownload = () => {
 function Home({ isAnimationDone, night }) {
   redirectDownload();
 
-  const [composeIsOpen, setComposeOpen] = useState(false);
+  const [composeIsOpen] = useState(false);
   const [toggleCount, setToggleCount] = useState(0);
 
-  const [text, setText] = useState(
-    `Woah! With twizzy.app I can use Twitter DMs and tweet directly from the menubar. Sweet! 😄️`
-  );
+  const [text, setText] = useState(`Woah! With twizzy.app I can use Twitter DMs and tweet directly from the menubar. Sweet!`);
 
   // refs
   const contentRef = useRef();
@@ -90,38 +84,20 @@ function Home({ isAnimationDone, night }) {
     night.toggle();
     setToggleCount(toggleCount + 1);
   };
-
-  const tweetProgress = () => {
-    setText(
-      `I'm having too much fun with the day/night switch on twizzy.app 🤦️ ${toggleCount} times so far! 😂️`
-    );
-    setComposeOpen(true);
+  
+  const copyURLtoClipboard = () =>
+  {
+    let text = document.createElement('input');
+    
+    text.value = window.location.href;
+    document.body.appendChild(text);
+    text.select();
+    document.execCommand('copy');
+    document.body.removeChild(text);
+    
+    window.alert("ссылка скопирована!\nНе забудь поделиться с другом :)")
   };
-
-  const buy = async () => {
-    if (isDev) {
-      if (canBuyInDev === false) {
-        return alert('Buying app...');
-      }
-    }
-
-    if (window) {
-      const { Paddle } = window;
-      await Paddle.Setup({ vendor: parseInt(REACT_APP_PADDLE_VENDOR) });
-      Paddle.Checkout.open({
-        product: parseInt(REACT_APP_PADDLE_PRODUCT_ID),
-        allowQuantity: false,
-        quantity: 1,
-        successCallback: async result => {
-          const { checkout } = result;
-          if (checkout.completed) {
-            goTo(routes.checkout, { checkoutId: checkout.id });
-          }
-        }
-      });
-    }
-  };
-
+  
   return (
     <S.Home>
       <S.MainSection>
@@ -131,16 +107,14 @@ function Home({ isAnimationDone, night }) {
           className="menubar"
           pose={menuBarPose}
           selected={showComposeWindow}
-          onClick={() => setComposeOpen(v => !v)}
-          mainIcon={faFeather}
-          icons={[faWifi, clock, faVolumeUp, '100%', faBatteryFull]}
+          mainIcon={"none"}
+          icons={[clock]}
         />
 
         <Compose
           {...isHoveringCompose.bind}
           text={text}
           setText={setText}
-          setComposeOpen={setComposeOpen}
           composeIsOpen={composeIsOpen}
           visible={showComposeWindow}
         />
@@ -160,47 +134,63 @@ function Home({ isAnimationDone, night }) {
           <A.Space huge />
 
           <S.TextContent isAnimationDone={isAnimationDone.value} pose={homePose}>
-            <S.Title> Twizzy </S.Title>
+            <S.Title> Добро пожаловать в Beneficio! </S.Title>
 
             <A.Space huge />
             <S.Subtitle>
               <span>
-                Focus on <A.Hover {...isHoveringMessages.bind}>messages</A.Hover> and{' '}
+                Присоеденяйся ко всем нашим <A.Hover {...isHoveringMessages.bind}>ресурсам</A.Hover> и{' '}
                 <A.Hover
-                  {...(canHover ? isHoveringCompose.bind : { onClick: () => setComposeOpen(true) })}
                   className="tweeting"
+                  onClick={() => copyURLtoClipboard()}
                 >
-                  tweeting
+                  делись
                 </A.Hover>
               </span>
               <br />
-              <span>The timeline can wait.</span>
+              <span>ими с друзьями!</span>
             </S.Subtitle>
 
             <A.Space />
-
-            <BuyButton buy={buy} startLoading={isAnimationDone.value} />
+  
+            <S.Subtitle>
+              А так же приумножай свой капитал, опробовав:
+            </S.Subtitle>
+            
+            <SalaryButton startLoading={isAnimationDone.value} />
 
             <A.Space />
-
-            <S.Platforms>Supports macOS, Windows, and Linux</S.Platforms>
-
+            
+            <S.Platforms>Станьте частью будущей платформы и развивайте её вместе с нами!</S.Platforms>
+  
+            <A.Space />
             <A.Space />
 
             <DayNightSwitch value={night.value} onChange={onToggleNight} />
-            <ToggleCount onTweet={tweetProgress} count={toggleCount} />
+  
+            <A.Space />
+  
+            <S.Subtitle>
+              Скачать приложение:
+            </S.Subtitle>
+            <S.ShopLinks>
+              <S.Link href="#">
+                <S.ImageLink src={appStore} alt="app_store"/>
+              </S.Link>
+              <S.Link href="#">
+                <S.ImageLink src={playMarket} alt="play_market"/>
+              </S.Link>
+            </S.ShopLinks>
+  
+            <A.Space />
+            
+            <S.Platforms>Приложение доступно для всех актуальных, мобильных платформ.</S.Platforms>
           </S.TextContent>
         </S.Content>
       </S.MainSection>
       <S.Footer initialPose="hidden" pose={composeIsOpen ? 'invisible' : menuBarPose}>
         <S.Links>
-          <S.Link href="mailto:contact@twizzy.app">Contact</S.Link>
-          <S.Link href="privacy.html">Privacy</S.Link>
-          <S.Link href="disclaimer.html">Disclaimer</S.Link>
-          <S.Link target="_blank" rel="noopener" href="https://github.com/kitze/twizzy-landing">
-            View Source
-          </S.Link>
-          {/*<S.Link onClick={() => goTo(routes.license)}>Retrieve license</S.Link>*/}
+          <S.DisabledLink>© Beneficio 2019. All Rights Reserved</S.DisabledLink>
         </S.Links>
       </S.Footer>
     </S.Home>

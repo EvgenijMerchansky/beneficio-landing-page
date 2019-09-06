@@ -17,7 +17,7 @@ export const MenuBar = styled(
   ...zIndexFor(ELEMENTS.MENUBAR),
   height: 25,
   width: '100%',
-  backgroundColor: theme.name === 'dark' ? '#191d28' : '#f2f2f2',
+  backgroundColor: "transparent",
   opacity: 0
 }));
 
