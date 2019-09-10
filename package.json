@@ -1,6 +1,6 @@
 {
-  "name": "twizzy-landing",
-  "version": "1.0.0",
+  "name": "beneficio",
+  "version": "1.0.1",
   "private": true,
   "dependencies": {
     "date-fns": "^1.29.0",
