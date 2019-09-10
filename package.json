@@ -15,7 +15,8 @@
     "styled-components": "^4.3.2",
     "styles-debugger": "^0.0.5",
     "react-app-rewired": "^2.1.3",
-    "customize-cra": "^0.2.13"
+    "customize-cra": "^0.2.13",
+    "babel-plugin-inline-react-svg": "^1.0.1"
   },
   "scripts": {
     "start": "react-app-rewired start",
